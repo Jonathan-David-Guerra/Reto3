@@ -19,37 +19,29 @@ public class Cliente {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Long id;
+    private Long idClient;
 
-    @Column(name = "NAME", length = 4000)
+    @Column(name = "NAME", length = 250)
     private String name;
 
-    @Column(name = "EMAIL", length = 20)
+    @Column(name = "EMAIL", length = 45)
     private String email;
 
-    @Column(name = "PASSWORD", length = 20)
+    @Column(name = "PASSWORD", length = 45)
     private String password;
 
     @Column(name = "AGE")
     private Integer age;
 
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
-    @JsonIgnoreProperties("client")
-    private List<Mensaje> messages;
 
-    @OneToMany(cascade = {CascadeType.PERSIST})
-    @JsonIgnoreProperties("client")
-    private List<Reserva> reservations;
-
-
-    public Long getId() {
-        return this.id;
+    public Long getIdClient() {
+        return this.idClient;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdClient(Long idClient) {
+        this.idClient = idClient;
     }
+
 
     public String getName() {
         return this.name;
@@ -83,20 +75,5 @@ public class Cliente {
         this.age = age;
     }
 
-    public List<Mensaje> getMessages() {
-        return this.messages;
-    }
-
-    public void setMessages(List<Mensaje> messages) {
-        this.messages = messages;
-    }
-
-    public List<Reserva> getReservations() {
-        return this.reservations;
-    }
-
-    public void setReservations(List<Reserva> reservations) {
-        this.reservations = reservations;
-    }
 
 }

@@ -17,14 +17,12 @@ public class Mensaje {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
     private Long id;
 
-    @Column(name = "MESSAGETEXT", length = 4000)
+    @Column(name = "MESSAGETEXT", length = 250)
     private String messageText;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST})
-    @JsonIgnoreProperties("messages")
+    @ManyToOne
     private Cliente client;
 
     @ManyToOne

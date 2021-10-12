@@ -1,5 +1,9 @@
 package edu.fincas.fincas.model;
 
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,14 +21,14 @@ public class Reserva {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    //@JsonFormat(pattern="yyyy-MM-dd")
-    private String startDate;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date startDate;
 
-    //@JsonFormat(pattern="yyyy-MM-dd")
-    private String devolutionDate;
-
-    @ManyToOne(cascade = {CascadeType.PERSIST})
-    @JsonIgnoreProperties("reservations")
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date devolutionDate;
+    
+    
+    @ManyToOne
     private Cliente client;
 
     @ManyToOne
@@ -40,19 +44,20 @@ public class Reserva {
         this.id = id;
     }
 
-    public String getStartDate() {
+
+    public Date getStartDate() {
         return this.startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public String getDevolutionDate() {
+    public Date getDevolutionDate() {
         return this.devolutionDate;
     }
 
-    public void setDevolutionDate(String devolutionDate) {
+    public void setDevolutionDate(Date devolutionDate) {
         this.devolutionDate = devolutionDate;
     }
 

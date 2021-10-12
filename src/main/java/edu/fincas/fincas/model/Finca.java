@@ -15,10 +15,9 @@ public class Finca{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
     private Long id;
     
-    @Column(name="ADDRESS",length = 20)
+    @Column(name="ADDRESS",length = 45)
     private String address;
 
     @Column(name="EXENSION")
@@ -28,11 +27,12 @@ public class Finca{
     @JoinColumn(name="CATEGORY")
     private Categoria category;
 
-    @Column(name="NAME", length = 400)
+    @Column(name="NAME", length = 45)
     private String name;
 
-    @Column(name="descripcion", length = 400)
+    @Column(name="descripcion", length = 250)
     private String description;
+
 
 
 
@@ -43,6 +43,7 @@ public class Finca{
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public String getAddress() {
         return this.address;

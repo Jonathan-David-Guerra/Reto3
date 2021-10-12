@@ -13,7 +13,7 @@ public class Categoria {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idClient;
+    private Long id;
 
     @Column(name="name", nullable = false,length = 45)
     private String name;
@@ -23,13 +23,15 @@ public class Categoria {
 
 
 
+
     public Long getId() {
-        return this.idClient;
+        return this.id;
     }
 
     public void setId(Long id) {
-        this.idClient = id;
+        this.id = id;
     }
+
 
     public String getName() {
         return this.name;

@@ -22,8 +22,8 @@ public class ClienteService {
     public Cliente guardarCliente(Cliente cliente){
     
         if (cliente != null){
-            if (cliente.getId() != null){
-                Optional<Cliente> optional = clienteRepository.getCliente(cliente.getId());
+            if (cliente.getIdClient() != null){
+                Optional<Cliente> optional = clienteRepository.getCliente(cliente.getIdClient());
                 if(optional.isEmpty()){
                     return clienteRepository.saveCliente(cliente);
                 }else{
