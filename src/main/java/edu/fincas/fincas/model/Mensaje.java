@@ -1,6 +1,5 @@
 package edu.fincas.fincas.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,24 +16,42 @@ public class Mensaje {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idMessage;
 
     @Column(name = "MESSAGETEXT", length = 250)
     private String messageText;
 
     @ManyToOne
-    private Cliente client;
-
-    @ManyToOne
+    @JsonIgnoreProperties({"messages","reservations"})
     private Finca farm;
 
+    @ManyToOne
+    @JsonIgnoreProperties({"messages","reservations"})
+    private Cliente client;
 
-    public Long getId() {
-        return this.id;
+    public Finca getFarm() {
+        return this.farm;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setFarm(Finca farm) {
+        this.farm = farm;
+    }
+
+
+    public Cliente getClient() {
+        return this.client;
+    }
+
+    public void setClient(Cliente client) {
+        this.client = client;
+    }
+
+    public Long getIdMessage() {
+        return this.idMessage;
+    }
+
+    public void setIdMessage(Long idMessage) {
+        this.idMessage = idMessage;
     }
 
     public String getMessageText() {
@@ -45,20 +62,5 @@ public class Mensaje {
         this.messageText = messageText;
     }
 
-    public Cliente getClient() {
-        return this.client;
-    }
-
-    public void setClient(Cliente client) {
-        this.client = client;
-    }
-
-    public Finca getFarm() {
-        return this.farm;
-    }
-
-    public void setFarm(Finca farm) {
-        this.farm = farm;
-    }
-
+ 
 }

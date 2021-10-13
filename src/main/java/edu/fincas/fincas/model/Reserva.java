@@ -2,13 +2,11 @@ package edu.fincas.fincas.model;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -19,31 +17,31 @@ public class Reserva {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private Long idReservation;
 
-    @JsonFormat(pattern="yyyy-MM-dd")
     private Date startDate;
-
-    @JsonFormat(pattern="yyyy-MM-dd")
     private Date devolutionDate;
-    
+    private String status="created";
+
+    @ManyToOne
+    @JoinColumn(name="farm_id")
+    @JsonIgnoreProperties("reservations")
+    private Finca farm;
     
     @ManyToOne
+    @JsonIgnoreProperties({"reservations","messages"})
     private Cliente client;
 
-    @ManyToOne
-    private Finca farm;
+    private String score="None";
 
 
-
-    public Long getId() {
-        return this.id;
+    public Long getIdReservation() {
+        return this.idReservation;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdReservation(Long idReservation) {
+        this.idReservation = idReservation;
     }
-
 
     public Date getStartDate() {
         return this.startDate;
@@ -61,12 +59,12 @@ public class Reserva {
         this.devolutionDate = devolutionDate;
     }
 
-    public Cliente getClient() {
-        return this.client;
+    public String getStatus() {
+        return this.status;
     }
 
-    public void setClient(Cliente client) {
-        this.client = client;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Finca getFarm() {
@@ -77,5 +75,20 @@ public class Reserva {
         this.farm = farm;
     }
 
-    
+    public Cliente getClient() {
+        return this.client;
+    }
+
+    public void setClient(Cliente client) {
+        this.client = client;
+    }
+
+    public String getScore() {
+        return this.score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
 }

@@ -2,7 +2,6 @@ package edu.fincas.fincas.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="clientes")
@@ -21,18 +19,40 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idClient;
 
-    @Column(name = "NAME", length = 250)
-    private String name;
-
     @Column(name = "EMAIL", length = 45)
     private String email;
 
     @Column(name = "PASSWORD", length = 45)
     private String password;
 
+    @Column(name = "NAME", length = 250)
+    private String name;
+
     @Column(name = "AGE")
     private Integer age;
 
+    @OneToMany
+    private List<Mensaje> messages;
+
+    @OneToMany
+    private List<Reserva> reservations;
+
+
+    public List<Reserva> getReservations() {
+        return this.reservations;
+    }
+
+    public void setReservations(List<Reserva> reservations) {
+        this.reservations = reservations;
+    }
+
+    public List<Mensaje> getMessages() {
+        return this.messages;
+    }
+
+    public void setMessages(List<Mensaje> messages) {
+        this.messages = messages;
+    }
 
     public Long getIdClient() {
         return this.idClient;

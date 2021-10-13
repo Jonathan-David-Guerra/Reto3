@@ -22,8 +22,8 @@ public class ReservaService {
     public Reserva guardarReserva(Reserva reserva){
     
         if (reserva != null){
-            if (reserva.getId() != null){
-                Optional<Reserva> optional = reservaRepository.getReserva(reserva.getId());
+            if (reserva.getIdReservation() != null){
+                Optional<Reserva> optional = reservaRepository.getReserva(reserva.getIdReservation());
                 if(optional.isEmpty()){
                     return reservaRepository.saveReserva(reserva);
                 }else{
