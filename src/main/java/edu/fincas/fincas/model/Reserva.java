@@ -32,7 +32,7 @@ public class Reserva {
     @JsonIgnoreProperties({"reservations","messages"})
     private Cliente client;
 
-    private String score="None";
+    private String score="'None'";
 
 
     public Long getIdReservation() {
