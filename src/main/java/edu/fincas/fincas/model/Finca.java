@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+import javax.persistence.CascadeType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -39,7 +39,8 @@ public class Finca{
     @JsonIgnoreProperties("farms")
     private Categoria category;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="farm")
+    @JsonIgnoreProperties({"farm","client"})
     private List<Mensaje> messages;
 
 
