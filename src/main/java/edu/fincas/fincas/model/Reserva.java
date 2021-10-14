@@ -2,12 +2,14 @@ package edu.fincas.fincas.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -32,7 +34,8 @@ public class Reserva {
     @JsonIgnoreProperties({"reservations","messages"})
     private Cliente client;
 
-    private String score="'None'";
+    @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
+    private Score score;
 
 
     public Long getIdReservation() {
@@ -83,11 +86,11 @@ public class Reserva {
         this.client = client;
     }
 
-    public String getScore() {
-        return this.score;
+    public Score getScore() {
+        return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(Score score) {
         this.score = score;
     }
 
