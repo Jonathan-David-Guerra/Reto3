@@ -25,4 +25,8 @@ public class MensajeRepository {
     public Mensaje saveMensaje(Mensaje entityMensaje){
         return mensajeCrudRepository.save(entityMensaje);
     }
+
+    public void borrarPorIdMensaje(Long id){
+        mensajeCrudRepository.deleteById(id);
+    }
 }

@@ -2,10 +2,13 @@ package edu.fincas.fincas.Controller;
 
 import java.util.List;
 
+import org.apache.logging.log4j.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +24,7 @@ import edu.fincas.fincas.service.FincaService;
 import edu.fincas.fincas.service.MensajeService;
 import edu.fincas.fincas.service.ReservaService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -58,7 +62,22 @@ public class RetoControlle {
         
         return cate;
     }
+
+    @PutMapping("/Category/update")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Categoria actualizarCategoria(@RequestBody Categoria categoria) {
+        
+        Categoria cate = categoriaService.actualizar(categoria);
+        
+        return cate;
+    }
     
+    @DeleteMapping("/Category/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public boolean eliminarCategoria(@PathVariable Long id) {
+        return categoriaService.borrarCategoria(id);
+    }
+
 
 // CLIENTE CONTROLLER
     @GetMapping("/Client/all")
@@ -73,6 +92,21 @@ public class RetoControlle {
         Cliente cli = clienteService.guardarCliente(cliente);
         
         return cli;
+    }
+
+    @PutMapping("/Client/update")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Cliente actualizarCliente(@RequestBody Cliente cliente) {
+        
+        Cliente cli = clienteService.actualizar(cliente);
+        
+        return cli;
+    }
+
+    @DeleteMapping("/Client/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public boolean eliminarCliente(@PathVariable Long id) {
+        return clienteService.borrarCliente(id);
     }
 
 // FINCA CONTROLLER
@@ -90,6 +124,21 @@ public class RetoControlle {
         return finc;
     }
 
+    @PutMapping("/Farm/update")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Finca actualizarFinca(@RequestBody Finca finca) {
+        
+        Finca fin = fincaService.actualizar(finca);
+        
+        return fin;
+    }
+
+    @DeleteMapping("/Farm/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public boolean eliminarFinca(@PathVariable Long id) {
+        return fincaService.borrarFinca(id);
+    }
+
 // MENSAJE CONTROLLER
     @GetMapping("/Message/all")
     public List<Mensaje> listarMensajes(){
@@ -105,6 +154,21 @@ public class RetoControlle {
         return men;
     }
 
+    @PutMapping("/Message/update")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Mensaje actualizarMensaje(@RequestBody Mensaje mensaje) {
+        
+        Mensaje men = mensajeService.actualizar(mensaje);
+        
+        return men;
+    }
+
+    @DeleteMapping("/Message/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public boolean eliminarMensaje(@PathVariable Long id) {
+        return mensajeService.borrarMensaje(id);
+    }
+
 // RESERVA CONTROLLER
     @GetMapping("/Reservation/all")
     public List<Reserva> listarReservas(){
@@ -118,6 +182,22 @@ public class RetoControlle {
         Reserva res = reservaService.guardarReserva(reserva);
         
         return res;
+    }
+
+
+    @PutMapping("/Reservation/update")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Reserva actualizarReserva(@RequestBody Reserva reserva) {
+        
+        Reserva res = reservaService.actualizar(reserva);
+        
+        return res;
+    }
+
+    @DeleteMapping("/Reservation/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public boolean eliminarReserva(@PathVariable Long id) {
+        return reservaService.borrarReserva(id);
     }
 
 }

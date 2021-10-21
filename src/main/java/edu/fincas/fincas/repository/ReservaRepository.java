@@ -25,4 +25,9 @@ public class ReservaRepository {
     public Reserva saveReserva(Reserva entityReserva){
         return reservaCrudRepository.save(entityReserva);
     }
+
+    public void borrarPorIdReserva(Long id){
+        reservaCrudRepository.deleteById(id);
+    }
+
 }

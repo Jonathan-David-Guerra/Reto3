@@ -25,4 +25,9 @@ public class FincaRepository {
     public Finca saveFinca(Finca entityFinca){
         return fincaCrudRepository.save(entityFinca);
     }
+
+    public void borrarPorIdFinca(Long id){
+        fincaCrudRepository.deleteById(id);
+    }
+
 }

@@ -26,4 +26,8 @@ public class ClienteRepository {
     public Cliente saveCliente(Cliente entityCliente){
         return clienteRepository.save(entityCliente);
     }
+
+    public void borrarPorIdCliente(Long id){
+        clienteRepository.deleteById(id);
+    }
 }

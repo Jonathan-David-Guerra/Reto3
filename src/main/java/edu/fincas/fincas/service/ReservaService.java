@@ -36,4 +36,57 @@ public class ReservaService {
         
         return null;
     }
+
+
+
+    public Reserva actualizar(Reserva reserva) {
+        if(reserva.getIdReservation() != null){
+            Optional<Reserva> oReserva = reservaRepository.getReserva(reserva.getIdReservation());
+            if(!oReserva.isEmpty()){
+                Reserva r = oReserva.get();
+                
+                if(reserva.getStartDate()!= null){
+                    r.setStartDate(reserva.getStartDate());
+                }
+                if(reserva.getDevolutionDate()!= null){
+                    r.setDevolutionDate(reserva.getDevolutionDate());
+                }
+                if(reserva.getStatus() != null){
+                    r.setStatus(reserva.getStatus());
+                }
+                if(reserva.getStatus() != null){
+                    r.setStatus(reserva.getStatus());
+                }
+                if(reserva.getFarm() != null){
+                    r.setFarm(reserva.getFarm());
+                }
+                if(reserva.getClient() != null){
+                    r.setClient(reserva.getClient());
+                }
+                if(reserva.getScore() != null){
+                    r.setScore(reserva.getScore());
+                }
+
+                return reservaRepository.saveReserva(r);
+
+            }else{
+                return reserva;
+            }
+        }else{
+            return reserva;
+        }
+    }
+
+    public Optional<Reserva> getReserva(Long id){
+        return reservaRepository.getReserva(id);
+    }
+
+    public boolean borrarReserva(Long id){
+        Boolean borrado =  getReserva(id).map(c -> {
+            reservaRepository.borrarPorIdReserva(id);
+            return true;
+        }).orElse(false);
+        return borrado;
+    
+    }
 }

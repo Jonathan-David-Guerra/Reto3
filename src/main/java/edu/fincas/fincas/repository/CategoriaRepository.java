@@ -25,4 +25,9 @@ public class CategoriaRepository {
     public Categoria saveCategoria(Categoria entityCategoria){
         return categoriaCrudRepository.save(entityCategoria);
     }
+
+    public void borrarPorIdCategoria(Long id){
+        categoriaCrudRepository.deleteById(id);
+    }
+
 }
