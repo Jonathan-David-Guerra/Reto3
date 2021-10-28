@@ -1,6 +1,6 @@
 function verFincas(){
     $.ajax({
-       url: "http://localhost:8080/api/Farm/all",
+       url: "http://132.226.244.108:8080/api/Farm/all",
         type: "GET",
         dataType: "json",
         success: function(respuesta){
@@ -71,7 +71,7 @@ function crearFinca(){
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-		url: "http://localhost:8080/api/Farm/save",
+		url: "http://132.226.244.108:8080/api/Farm/save",
         type:"POST",
         data: dataToSend,
         dataType:"json",
@@ -98,7 +98,7 @@ function crearFinca(){
 function editarF(idF){
     
     $.ajax({
-        url: "http://localhost:8080/api/Farm/all",
+        url: "http://132.226.244.108:8080/api/Farm/all",
          type: "GET",
          dataType: "json",
          success: function(respuesta){
@@ -134,7 +134,7 @@ function editarFinca(){
     let dataToSend = JSON.stringify(myData);
         
     $.ajax({
-        url: "http://localhost:8080/api/Farm/update",
+        url: "http://132.226.244.108:8080/api/Farm/update",
         type:"PUT",
         data: dataToSend,
         dataType:"json",
@@ -153,7 +153,7 @@ function editarFinca(){
     
 function borrarF(idF){
         
-    let urlMV="http://localhost:8080/api/Farm/"+idF;
+    let urlMV="http://132.226.244.108:8080/api/Farm/"+idF;
     $.ajax({
         url: urlMV,
         type:"DELETE",

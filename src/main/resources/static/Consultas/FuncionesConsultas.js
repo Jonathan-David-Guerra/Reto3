@@ -1,6 +1,6 @@
 function verReporteReservas(){
     $.ajax({
-       url: "http://localhost:8080/api/Reservation/report-status",
+       url: "http://132.226.244.108:8080/api/Reservation/report-status",
         type: "GET",
         dataType: "json",
         success: function(respuesta){
@@ -32,7 +32,7 @@ function RespuestaReporteReservas(items){
 
 function verReporteClientes(){
     $.ajax({
-       url: "http://localhost:8080/api/Reservations/report-clients",
+       url: "http://132.226.244.108:8080/api/Reservations/report-clients",
         type: "GET",
         dataType: "json",
         success: function(respuesta){
@@ -88,7 +88,7 @@ function buscarFechas(){
     console.log(dateOne)
     console.log(dateTwo)
     $.ajax({
-       url: "http://localhost:8080/api/Reservation/report-dates/"+dateOne+"/"+dateTwo,
+       url: "http://132.226.244.108:8080/api/Reservation/report-dates/"+dateOne+"/"+dateTwo,
         type: "GET",
         dataType: "json",
         success: function(respuesta){

@@ -1,6 +1,6 @@
 function verCategorias(){
     $.ajax({
-       url: "http://localhost:8080/api/Category/all",
+       url: "http://132.226.244.108:8080/api/Category/all",
         type: "GET",
         dataType: "json",
         success: function(respuesta){
@@ -49,7 +49,7 @@ function crearCategoria(){
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-		url: "http://localhost:8080/api/Category/save",
+		url: "http://132.226.244.108:8080/api/Category/save",
         type:"POST",
         data: dataToSend,
         dataType:"json",
@@ -83,7 +83,7 @@ function editarCategoria(){
     let dataToSend = JSON.stringify(myData);
     
     $.ajax({
-		url: "http://localhost:8080/api/Category/update",
+		url: "http://132.226.244.108:8080/api/Category/update",
         type:"PUT",
         data: dataToSend,
         dataType:"json",
@@ -97,7 +97,7 @@ function editarCategoria(){
 
 function borrarC(idB){
 
-    let urlMV="http://localhost:8080/api/Category/"+idB;
+    let urlMV="http://132.226.244.108:8080/api/Category/"+idB;
     $.ajax({
 		url: urlMV,
         type:"DELETE",

@@ -1,6 +1,6 @@
 function verMensajes(){
     $.ajax({
-       url: "http://localhost:8080/api/Message/all",
+       url: "http://132.226.244.108:8080/api/Message/all",
         type: "GET",
         dataType: "json",
         success: function(respuesta){
@@ -61,7 +61,7 @@ function crearMensaje(){
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-		url: "http://localhost:8080/api/Message/save",
+		url: "http://132.226.244.108:8080/api/Message/save",
         type:"POST",
         data: dataToSend,
         dataType:"json",
@@ -86,7 +86,7 @@ function crearMensaje(){
 function editarM(idM){
     
     $.ajax({
-        url: "http://localhost:8080/api/Message/all",
+        url: "http://132.226.244.108:8080/api/Message/all",
          type: "GET",
          dataType: "json",
          success: function(respuesta){
@@ -113,7 +113,7 @@ function editarMensaje(){
     let dataToSend = JSON.stringify(myData);
         
     $.ajax({
-        url: "http://localhost:8080/api/Message/update",
+        url: "http://132.226.244.108:8080/api/Message/update",
         type:"PUT",
         data: dataToSend,
         dataType:"json",
@@ -129,7 +129,7 @@ function editarMensaje(){
     
 function borrarM(idM){
         
-    let urlMV="http://localhost:8080/api/Message/"+idM;
+    let urlMV="http://132.226.244.108:8080/api/Message/"+idM;
     $.ajax({
         url: urlMV,
         type:"DELETE",

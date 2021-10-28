@@ -1,6 +1,6 @@
 function verClientes(){
     $.ajax({
-       url: "http://localhost:8080/api/Client/all",
+       url: "http://132.226.244.108:8080/api/Client/all",
         type: "GET",
         dataType: "json",
         success: function(respuesta){
@@ -64,7 +64,7 @@ function crearCliente(){
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-		url: "http://localhost:8080/api/Client/save",
+		url: "http://132.226.244.108:8080/api/Client/save",
         type:"POST",
         data: dataToSend,
         dataType:"json",
@@ -90,7 +90,7 @@ function crearCliente(){
 function editarC(idCli){
     
     $.ajax({
-        url: "http://localhost:8080/api/Client/all",
+        url: "http://132.226.244.108:8080/api/Client/all",
          type: "GET",
          dataType: "json",
          success: function(respuesta){
@@ -132,7 +132,7 @@ function editarCliente(){
         let dataToSend = JSON.stringify(myData);
         
         $.ajax({
-            url: "http://localhost:8080/api/Client/update",
+            url: "http://132.226.244.108:8080/api/Client/update",
             type:"PUT",
             data: dataToSend,
             dataType:"json",
@@ -157,7 +157,7 @@ function editarCliente(){
     
     function borrarC(idB){
         
-        let urlMV="http://localhost:8080/api/Client/"+idB;
+        let urlMV="http://132.226.244.108:8080/api/Client/"+idB;
         $.ajax({
             url: urlMV,
             type:"DELETE",
