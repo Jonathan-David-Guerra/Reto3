@@ -1,5 +1,6 @@
 package edu.fincas.fincas.Controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import edu.fincas.fincas.model.Categoria;
 import edu.fincas.fincas.model.Cliente;
 import edu.fincas.fincas.model.Finca;
 import edu.fincas.fincas.model.Mensaje;
+import edu.fincas.fincas.model.ReportClients;
+import edu.fincas.fincas.model.ReportStatus;
 import edu.fincas.fincas.model.Reserva;
 import edu.fincas.fincas.service.CategoriaService;
 import edu.fincas.fincas.service.ClienteService;
@@ -199,4 +202,20 @@ public class RetoControlle {
         return reservaService.borrarReserva(id);
     }
 
+
+// Metodos Reto 5
+
+    @GetMapping("/Reservation/report-dates/{ini}/{fin}")
+    public List<Reserva> listaReservasFechas(@PathVariable String ini,@PathVariable String fin){
+        return reservaService.getReservasFechas(ini,fin);
+    }
+
+    @GetMapping("/Reservation/report-status")
+    public ReportStatus getReportStatus(){
+        return reservaService.getReporteStatus();
+    }
+    @GetMapping("/Reservations/report-clients")
+    public List<ReportClients> getResportTopClientes(){
+        return reservaService.getTopClientes();
+    }
 }

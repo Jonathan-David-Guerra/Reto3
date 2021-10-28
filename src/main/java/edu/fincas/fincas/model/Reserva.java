@@ -23,7 +23,7 @@ public class Reserva {
 
     private Date startDate;
     private Date devolutionDate;
-    private String status="created";
+    private String status;//="created";
 
     @ManyToOne
     @JoinColumn(name="farm_id")
