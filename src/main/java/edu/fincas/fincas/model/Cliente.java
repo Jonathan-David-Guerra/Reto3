@@ -35,7 +35,7 @@ public class Cliente {
     @OneToMany
     private List<Mensaje> messages;
 
-    @OneToMany(cascade = {CascadeType.ALL},mappedBy="client")
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="client")
     private List<Reserva> reservations;
 
 
