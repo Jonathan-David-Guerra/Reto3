@@ -1,6 +1,7 @@
 function verReservas(){
     $.ajax({
-       url: "http://132.226.244.108:8080/api/Reservation/all",
+        //132.226.244.108
+       url: "http://localhost:8080/api/Reservation/all",
         type: "GET",
         dataType: "json",
         success: function(respuesta){
@@ -60,7 +61,7 @@ function crearReservacion(){
     let dataToSend = JSON.stringify(myData);
 
     $.ajax({
-		url: "http://132.226.244.108:8080/api/Reservation/save",
+		url: "http://localhost:8080/api/Reservation/save",
         type:"POST",
         data: dataToSend,
         dataType:"json",
