@@ -213,7 +213,7 @@ public class RetoControlle {
     public ReportStatus getReportStatus(){
         return reservaService.getReporteStatus();
     }
-    @GetMapping("/Reservations/report-clients")
+    @GetMapping("/Reservation/report-clients")
     public List<ReportClients> getResportTopClientes(){
         return reservaService.getTopClientes();
     }
